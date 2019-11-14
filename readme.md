@@ -4,15 +4,15 @@
 
 - 部署
 
-ZEIT Now：静态站点和无服务器功能的云平台，提供立即部署
+    ZEIT Now：静态站点和无服务器功能的云平台，提供立即部署
 
-https://zeit.co/dashboard 绑定 github
+    https://zeit.co/dashboard 绑定 github
 
 - 脚手架
 
-create umi
+    create umi
 
-`yarn create umi`
+    `yarn create umi`
 
 - ejs 模板
 
