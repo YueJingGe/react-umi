@@ -8,14 +8,5 @@ module.exports = {
     alias: {
       '@': require('path').resolve(__dirname, 'src'),
     },
-  },
-  // devServer: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://zuowen.api.juhe.cn/',
-  //       changeOrigin: true,
-  //       pathRewrite: { '^/api': '' },
-  //     },
-  //   },
-  // },
+  }
 };

@@ -1,5 +1,4 @@
 // ref: https://umijs.org/config/
-// const chainWebpack = require('webpack-chain');
 export default {
   history: 'hash',
   treeShaking: true,
@@ -40,20 +39,9 @@ export default {
   ],
   proxy: {
     '/api': {
-      target: 'http://zuowen.api.juhe.cn',
+      target: 'https://zuowen.api.juhe.cn',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
     },
-  },
-  // chainWebpack(config, { webpack }) {
-  //   console.log('11111', config);
-
-  //   config.devServer.proxy = {
-  //     '/api': {
-  //       target: 'http://zuowen.api.juhe.cn/',
-  //       changeOrigin: true,
-  //       pathRewrite: { '^/api': '' },
-  //     },
-  //   };
-  // },
+  }
 };
