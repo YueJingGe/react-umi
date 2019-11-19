@@ -39,7 +39,7 @@ export default {
   ],
   proxy: {
     '/api': {
-      target: 'https://zuowen.api.juhe.cn',
+      target: 'https://zuowen.api.juhe.cn/',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
       secure: false, // 不进行证书验证
