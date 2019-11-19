@@ -42,6 +42,7 @@ export default {
       target: 'https://zuowen.api.juhe.cn',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
+      secure: false, // 不进行证书验证
     },
   }
 };
