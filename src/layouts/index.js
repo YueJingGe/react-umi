@@ -2,7 +2,7 @@ import router from 'umi/router';
 import withRouter from 'umi/withRouter';
 import React, { useState, useEffect, useRef } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Divider } from 'antd';
 // 面包屑
 import Breakcrumbs from '../components/Breakcrumbs';
 import styles from './index.css';
@@ -19,12 +19,13 @@ function BasicLayout({ location, children }) {
    */
   useEffect(() => {
     toggleKey(location.pathname);
-  });
+  }, [location.pathname]);
   /**
    * componentWillUpdate 当路由发生改变时，右侧内容执行回到顶部
    */
   useEffect(() => {
-    content.current.scrollTo(0, 0);
+    let layout = document.getElementsByClassName('layout')[0];
+    if (layout) layout.scrollTop = 0;
   }, [location]);
 
   const handleClick = item => {
@@ -60,7 +61,7 @@ function BasicLayout({ location, children }) {
           </Menu.Item>
         </Menu>
       </Sider>
-      <Layout>
+      <Layout className="layout">
         <Header style={{ background: '#fff', padding: 0 }}>
           <Icon
             className={styles.trigger}
@@ -70,23 +71,23 @@ function BasicLayout({ location, children }) {
             }}
           />
         </Header>
-        <div ref={content}>
-          <Content
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              background: '#fff',
-              minHeight: '100%',
-            }}
-          >
-            <Breakcrumbs />
-            <TransitionGroup>
-              <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
-                {children}
-              </CSSTransition>
-            </TransitionGroup>
-          </Content>
-        </div>
+
+        <Content
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            background: '#fff',
+            minHeight: 'initial',
+          }}
+        >
+          <Breakcrumbs />
+          <Divider />
+          <TransitionGroup>
+            <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
+              {children}
+            </CSSTransition>
+          </TransitionGroup>
+        </Content>
       </Layout>
     </Layout>
   );
